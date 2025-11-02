@@ -1,159 +1,121 @@
-      <!doctype html>
+          <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Prismus Bakery — The ultimate heaven recipe</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <meta name="description" content="Prismus Bakery — warm rustic & dreamy Ghibli café vibes. Order via WhatsApp: 92202 57229" />
+  <title>Prismus Bakery — The Ultimate Heaven Recipe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins&display=swap" rel="stylesheet" />
   <style>
-    :root{
-      --bg:#0b0a08;
-      --panel:#1c140f;
-      --muted:#c8b79a;
-      --cream:#f7efe6;
-      --accent:#d4a373;
-      --glass: rgba(255,255,255,0.02);
-      --radius:14px;
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff8f0;
+      overflow-x: hidden;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;background:radial-gradient(1200px 600px at 10% 10%, rgba(255,230,200,0.03), transparent 10%),var(--bg);color:var(--cream);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-    .wrap{max-width:1100px;margin:0 auto;padding:20px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 0}
-    .brand{display:flex;align-items:center;gap:14px}
-    .logo img{width:62px;height:62px;border-radius:12px;object-fit:cover;}
-    .brand h1{font-family:'Playfair Display',serif;margin:0;font-size:20px;letter-spacing:0.6px}
-    .tag{font-size:12px;color:var(--muted)}
-    nav ul{display:flex;gap:14px;list-style:none;margin:0;padding:0}
-    nav a{color:var(--cream);padding:10px 12px;border-radius:10px;text-decoration:none;font-weight:600}
-    nav a.active, nav a:hover{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(200,150,100,0.03));box-shadow:0 6px 18px rgba(0,0,0,0.6)}
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:18px}
-    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:26px;border-radius:18px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 18px 60px rgba(2,6,10,0.6)}
-    .hero h2{font-family:'Playfair Display',serif;font-size:42px;margin:0 0 8px 0}
-    .hero p{color:var(--muted);margin:0 0 14px 0}
-    .hero .actions{display:flex;gap:12px}
-    .btn{padding:12px 16px;border-radius:12px;background:transparent;border:1px solid rgba(255,255,255,0.04);cursor:pointer;font-weight:700}
-    .btn.gold{background:linear-gradient(90deg, rgba(212,163,115,0.12), rgba(212,163,115,0.06));border:1px solid rgba(212,163,115,0.28);color:var(--cream)}
-    section{margin-top:28px}
-    .card{background:var(--panel);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.02)}
-    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-    .gallery img{width:100%;border-radius:10px;object-fit:cover;box-shadow:0 6px 22px rgba(0,0,0,0.6);transition:transform 0.3s ease}
-    .gallery img:hover{transform:scale(1.03);}
-    .price{margin-top:6px;text-align:center;font-family:'Playfair Display',serif;color:var(--muted);}
-    footer{margin-top:34px;color:var(--muted);font-size:13px}
-    @media (max-width:980px){.hero{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:520px){.gallery{grid-template-columns:1fr}}
 
-    /* Butterfly intro */
-    #intro-screen{
-      position:fixed;
-      top:0;left:0;width:100%;height:100%;
-      background:#0b0a08;
-      z-index:9999;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex-direction:column;
-      animation:fadeOut 1s ease 4s forwards;
+    header {
+      text-align: center;
+      padding: 50px 0 20px;
     }
-    #intro-screen img{
-      width:120px;height:120px;border-radius:16px;object-fit:cover;
-      animation:logoFade 4s ease forwards;
+
+    header img {
+      width: 160px;
+      animation: fadeIn 2s ease forwards;
     }
-    .butterfly{
-      position:absolute;
-      width:22px;height:22px;
-      background:radial-gradient(circle at center, gold 35%, transparent 70%);
-      border-radius:50%;
-      opacity:0.9;
-      animation:fly 5s linear infinite;
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #5a3e2b;
     }
-    @keyframes fly{
-      0%{transform:translateY(0) scale(1);}
-      50%{transform:translateY(-100px) scale(1.2);}
-      100%{transform:translateY(-200px) scale(0.8);opacity:0;}
+
+    /* Butterfly overlay */
+    #butterfly-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #fff8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      overflow: hidden;
+      animation: fadeOut 1s ease 4s forwards;
     }
-    @keyframes fadeOut{
-      to{opacity:0;visibility:hidden;}
+
+    .butterfly {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: radial-gradient(circle at 10px 10px, gold, goldenrod);
+      border-radius: 50% 50% 0 0;
+      transform: rotate(45deg);
+      animation: fly 5s linear infinite;
+      opacity: 0.8;
     }
-    @keyframes logoFade{
-      0%{opacity:0;transform:scale(0.9);}
-      50%{opacity:1;transform:scale(1);}
-      100%{opacity:1;}
+
+    .butterfly::before {
+      content: "";
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: radial-gradient(circle at 10px 10px, gold, goldenrod);
+      border-radius: 50% 50% 0 0;
+      transform: rotate(-90deg);
+      left: 20px;
+      top: 0;
+    }
+
+    @keyframes fly {
+      0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+      100% { transform: translateY(-100vh) rotate(90deg); opacity: 0; }
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
     }
   </style>
 </head>
 <body>
   <!-- Butterfly intro -->
-  <div id="intro-screen">
-    <img src="https://i.postimg.cc/90qStZH2/8060830f4abd94507617895f2b018b6e-2.jpg" alt="Prismus Bakery Logo">
+  <div id="butterfly-overlay">
+    <img src="logo.png" alt="Prismus Bakery Logo" style="width:150px; z-index:10000;" />
   </div>
 
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="logo">
-          <img src="https://i.postimg.cc/90qStZH2/8060830f4abd94507617895f2b018b6e-2.jpg" alt="Prismus Bakery logo">
-        </div>
-        <div>
-          <h1>Prismus Bakery</h1>
-          <div class="tag">The ultimate heaven recipe</div>
-        </div>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="#home" data-page="home" class="nav-link active">Home</a></li>
-          <li><a href="#menu" data-page="menu" class="nav-link">Menu</a></li>
-          <li><a href="#gallery" data-page="gallery" class="nav-link">Gallery</a></li>
-          <li><a href="#contact" data-page="contact" class="nav-link">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+  <!-- Main Content -->
+  <header>
+    <img src="logo.png" alt="Prismus Bakery Logo" />
+    <h1>Prismus Bakery — The Ultimate Heaven Recipe</h1>
+  </header>
 
-    <!-- HOME -->
-    <main id="home" class="page active">
-      <!-- (home section unchanged) -->
-    </main>
-
-    <!-- GALLERY -->
-    <!-- gallery section same as yours -->
-    <!-- ... -->
-    <!-- FOOTER same as before -->
-
-  </div>
+  <section>
+    <p style="text-align:center; color:#5a3e2b;">Welcome to the sweetest corner of the internet 🍰</p>
+  </section>
 
   <script>
-    // Navigation
-    function navigate(page){
-      document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-      const el=document.getElementById(page);
-      if(el) el.classList.add('active');
-      document.querySelectorAll('.nav-link').forEach(a=>a.classList.remove('active'));
-      const link=document.querySelector('[data-page="'+page+'"]');
-      if(link) link.classList.add('active');
-      window.location.hash = page;
+    // Create butterflies
+    const overlay = document.getElementById('butterfly-overlay');
+    for (let i = 0; i < 20; i++) {
+      const b = document.createElement('div');
+      b.classList.add('butterfly');
+      b.style.left = Math.random() * 100 + 'vw';
+      b.style.animationDuration = 3 + Math.random() * 2 + 's';
+      overlay.appendChild(b);
     }
 
-    (function(){
-      const hash = (window.location.hash||'#home').substring(1);
-      navigate(hash);
-      document.querySelectorAll('.nav-link').forEach(a=>a.addEventListener('click', e=>{e.preventDefault();navigate(a.dataset.page)}))
-    })();
-
-    // Golden butterflies intro
-    window.addEventListener('load', ()=>{
-      const intro = document.getElementById('intro-screen');
-      for(let i=0;i<25;i++){
-        const b=document.createElement('div');
-        b.className='butterfly';
-        b.style.left=Math.random()*100+'vw';
-        b.style.top='100vh';
-        b.style.animationDelay=(Math.random()*2)+'s';
-        intro.appendChild(b);
-      }
-      setTimeout(()=>intro.remove(),5000);
-    });
+    // Remove overlay after 5 seconds
+    setTimeout(() => {
+      overlay.style.display = 'none';
+    }, 5000);
   </script>
 </body>
 </html>
