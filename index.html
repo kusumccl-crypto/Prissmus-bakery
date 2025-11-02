@@ -1,220 +1,212 @@
-              <!doctype html>
+
+    <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Prismus Bakery — The Ultimate Heaven Recipe</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #fff8f0;
-      color: #5a3e2b;
-      overflow-x: hidden;
+    body{
+      margin:0;
+      font-family:'Poppins',sans-serif;
+      background:#fff8f0;
+      color:#5a3e2b;
+      overflow-x:hidden;
+      overflow-y:auto;
     }
 
-    header {
-      text-align: center;
-      padding: 40px 0;
+    header{
+      text-align:center;
+      padding:40px 0;
+    }
+    header img{
+      width:150px;
+    }
+    h1{
+      font-family:'Playfair Display',serif;
+      font-size:2.5rem;
+      margin-top:10px;
+    }
+    nav{
+      display:flex;
+      justify-content:center;
+      gap:40px;
+      margin-top:20px;
+    }
+    nav a{
+      text-decoration:none;
+      color:#5a3e2b;
+      font-weight:500;
+    }
+    nav a:hover{
+      color:goldenrod;
     }
 
-    header img {
-      width: 150px;
-      animation: fadeIn 1.5s ease forwards;
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+      padding:40px;
+    }
+    .gallery-item{
+      background:#fff;
+      border-radius:15px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      overflow:hidden;
+      transition:transform .3s;
+      text-align:center;
+    }
+    .gallery-item:hover{transform:scale(1.03);}
+    .gallery-item img{
+      width:100%;
+      height:200px;
+      object-fit:cover;
+    }
+    .gallery-item h3{margin:10px 0 5px;}
+    .gallery-item p{color:#8b6b4b;}
+
+    footer{
+      text-align:center;
+      padding:20px;
+      background:#5a3e2b;
+      color:#fff;
     }
 
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      margin-top: 10px;
-      color: #5a3e2b;
+    /* Intro overlay */
+    #intro-overlay{
+      position:fixed;
+      top:0;left:0;
+      width:100vw;height:100vh;
+      background:#fff8f0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      z-index:9999;
+      animation:fadeOut 1s ease 4s forwards;
+    }
+    #intro-overlay img{
+      width:180px;
+      z-index:10;
+      animation:fadeInLogo 1.5s ease-in-out;
+    }
+    .butterfly{
+      position:absolute;
+      width:35px;height:35px;
+      background:radial-gradient(circle at 10px 10px,gold,goldenrod);
+      border-radius:50% 50% 0 0;
+      transform:rotate(45deg);
+      opacity:.8;
+      animation:fly 5s linear infinite;
+    }
+    .butterfly::before{
+      content:"";
+      position:absolute;
+      width:35px;height:35px;
+      background:radial-gradient(circle at 10px 10px,gold,goldenrod);
+      border-radius:50% 50% 0 0;
+      transform:rotate(-90deg);
+      left:20px;top:0;
     }
 
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin-top: 20px;
+    @keyframes fly{
+      0%{transform:translateY(0) rotate(45deg);opacity:1;}
+      100%{transform:translateY(-120vh) rotate(90deg);opacity:0;}
     }
-
-    nav a {
-      text-decoration: none;
-      color: #5a3e2b;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: goldenrod;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 40px;
-    }
-
-    .gallery-item {
-      background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transition: transform 0.3s;
-      text-align: center;
-      padding-bottom: 15px;
-    }
-
-    .gallery-item:hover {
-      transform: scale(1.03);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .gallery-item h3 {
-      margin: 10px 0 5px;
-    }
-
-    .gallery-item p {
-      color: #8b6b4b;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #5a3e2b;
-      color: white;
-    }
-
-    /* --- BUTTERFLY INTRO --- */
-    #intro-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: #fff8f0;
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      animation: fadeOut 1s ease 4s forwards;
-    }
-
-    #intro-overlay img {
-      width: 180px;
-      z-index: 10000;
-      animation: fadeInLogo 1.5s ease-in-out;
-    }
-
-    .butterfly {
-      position: absolute;
-      width: 35px;
-      height: 35px;
-      background: radial-gradient(circle at 10px 10px, gold, goldenrod);
-      border-radius: 50% 50% 0 0;
-      transform: rotate(45deg);
-      opacity: 0.8;
-      animation: fly 5s linear infinite;
-    }
-
-    .butterfly::before {
-      content: "";
-      position: absolute;
-      width: 35px;
-      height: 35px;
-      background: radial-gradient(circle at 10px 10px, gold, goldenrod);
-      border-radius: 50% 50% 0 0;
-      transform: rotate(-90deg);
-      left: 20px;
-      top: 0;
-    }
-
-    @keyframes fly {
-      0% { transform: translateY(0) rotate(45deg); opacity: 1; }
-      100% { transform: translateY(-120vh) rotate(90deg); opacity: 0; }
-    }
-
-    @keyframes fadeOut {
-      to { opacity: 0; visibility: hidden; }
-    }
-
-    @keyframes fadeInLogo {
-      from { opacity: 0; transform: scale(0.7); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeOut{to{opacity:0;visibility:hidden;}}
+    @keyframes fadeInLogo{from{opacity:0;transform:scale(.7);}to{opacity:1;transform:scale(1);}}
   </style>
 </head>
 <body>
 
   <!-- Butterfly intro -->
   <div id="intro-overlay">
-    <img src="logo.png" alt="Prismus Bakery Logo" />
+    <img src="https://i.postimg.cc/90qStZH2/8060830f4abd94507617895f2b018b6e-2.jpg" alt="Prismus Bakery Logo">
   </div>
 
-  <!-- Website Header -->
+  <!-- Page content -->
   <header>
-    <img src="logo.png" alt="Prismus Bakery Logo">
+    <img src="https://i.postimg.cc/90qStZH2/8060830f4abd94507617895f2b018b6e-2.jpg" alt="Prismus Bakery Logo">
     <h1>Prismus Bakery — The Ultimate Heaven Recipe</h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="contact.html">Contact</a>
+      <a href="#">Home</a>
+      <a href="#">Gallery</a>
+      <a href="#">Contact</a>
     </nav>
   </header>
 
-  <!-- Gallery Section -->
   <section class="gallery">
     <div class="gallery-item">
-      <img src="cake1.jpg" alt="Chocolate Cake">
-      <h3>Chocolate Dream Cake</h3>
-      <p>₹499</p>
+      <img src="https://i.postimg.cc/26SzCcRB/Screenshot-2025-11-02-19-31-08-356-com-whatsapp.jpg" alt="Espresso cookies">
+      <h3>Espresso Cookies</h3>
+      <p>₹120 (pack of 15)</p>
     </div>
     <div class="gallery-item">
-      <img src="cake2.jpg" alt="Strawberry Delight">
-      <h3>Strawberry Delight</h3>
-      <p>₹549</p>
+      <img src="https://i.postimg.cc/B6RQNTk7/Screenshot-2025-11-02-19-31-05-067-com-whatsapp.jpg" alt="Gooey biscuits">
+      <h3>Gooey Biscuits</h3>
+      <p>₹120 (pack of 4)</p>
     </div>
     <div class="gallery-item">
-      <img src="cake3.jpg" alt="Blueberry Heaven">
-      <h3>Blueberry Heaven</h3>
-      <p>₹599</p>
+      <img src="https://i.postimg.cc/LsbH6kHv/Screenshot-2025-11-02-19-31-02-226-com-whatsapp.jpg" alt="Espresso mini cakes">
+      <h3>Espresso Mini Cakes</h3>
+      <p>₹230</p>
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.postimg.cc/rFMLTZ14/Screenshot-2025-11-02-19-30-59-625-com-whatsapp.jpg" alt="Vanilla mini cakes">
+      <h3>Vanilla Mini Cakes</h3>
+      <p>₹200</p>
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.postimg.cc/j50FXCvd/Screenshot-2025-11-02-19-30-56-990-com-whatsapp.jpg" alt="Chocolate mini cakes">
+      <h3>Chocolate Mini Cakes</h3>
+      <p>₹250</p>
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.postimg.cc/DwRjvm9b/Screenshot-2025-11-02-19-30-54-313-com-whatsapp.jpg" alt="Tarts">
+      <h3>Tarts</h3>
+      <p>₹100</p>
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.postimg.cc/k4svb5HJ/Screenshot-2025-11-02-19-30-51-678-com-whatsapp.jpg" alt="Pineapple cupcakes">
+      <h3>Pineapple Cupcakes</h3>
+      <p>₹50 / pcs</p>
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.postimg.cc/LX9z2p8B/Screenshot-2025-11-02-19-30-48-863-com-whatsapp.jpg" alt="Vanilla chocochip cupcake">
+      <h3>Vanilla Chocochip Cupcake</h3>
+      <p>₹60 / pcs</p>
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.postimg.cc/rpJrhPNd/Screenshot-2025-11-02-19-30-41-736-com-whatsapp.jpg" alt="Chocolate espresso cupcakes">
+      <h3>Chocolate Espresso Cupcake</h3>
+      <p>₹50 / pcs</p>
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.postimg.cc/fy4SkQzw/Screenshot-2025-11-02-19-30-29-433-com-whatsapp.jpg" alt="Chocolate cupcake">
+      <h3>Chocolate Cupcake</h3>
+      <p>₹50 / pcs</p>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 Prismus Bakery. All Rights Reserved.</p>
+    <p>© 2025 Prismus Bakery. Customize your cupcakes for any event!</p>
   </footer>
 
   <script>
-    const overlay = document.getElementById('intro-overlay');
-    for (let i = 0; i < 25; i++) {
-      const b = document.createElement('div');
+    const overlay=document.getElementById('intro-overlay');
+    for(let i=0;i<25;i++){
+      const b=document.createElement('div');
       b.classList.add('butterfly');
-      b.style.left = Math.random() * 100 + 'vw';
-      b.style.animationDuration = 3 + Math.random() * 2 + 's';
-      b.style.animationDelay = Math.random() * 2 + 's';
+      b.style.left=Math.random()*100+'vw';
+      b.style.animationDuration=3+Math.random()*2+'s';
+      b.style.animationDelay=Math.random()*2+'s';
       overlay.appendChild(b);
     }
-
-    // Remove after 5s
-    setTimeout(() => {
-      overlay.style.display = 'none';
-    }, 5000);
+    setTimeout(()=>{
+      overlay.style.display='none';
+      document.body.style.overflow='auto';
+    },5000);
   </script>
-
 </body>
 </html>
