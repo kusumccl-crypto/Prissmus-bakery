@@ -1,4 +1,4 @@
-          <!doctype html>
+              <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -12,110 +12,19 @@
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background-color: #fff8f0;
+      color: #5a3e2b;
       overflow-x: hidden;
     }
 
     header {
       text-align: center;
-      padding: 50px 0 20px;
+      padding: 40px 0;
     }
 
     header img {
-      width: 160px;
-      animation: fadeIn 2s ease forwards;
+      width: 150px;
+      animation: fadeIn 1.5s ease forwards;
     }
 
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      color: #5a3e2b;
-    }
-
-    /* Butterfly overlay */
-    #butterfly-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: #fff8f0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      overflow: hidden;
-      animation: fadeOut 1s ease 4s forwards;
-    }
-
-    .butterfly {
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      background: radial-gradient(circle at 10px 10px, gold, goldenrod);
-      border-radius: 50% 50% 0 0;
-      transform: rotate(45deg);
-      animation: fly 5s linear infinite;
-      opacity: 0.8;
-    }
-
-    .butterfly::before {
-      content: "";
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      background: radial-gradient(circle at 10px 10px, gold, goldenrod);
-      border-radius: 50% 50% 0 0;
-      transform: rotate(-90deg);
-      left: 20px;
-      top: 0;
-    }
-
-    @keyframes fly {
-      0% { transform: translateY(0) rotate(45deg); opacity: 1; }
-      100% { transform: translateY(-100vh) rotate(90deg); opacity: 0; }
-    }
-
-    @keyframes fadeOut {
-      to { opacity: 0; visibility: hidden; }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.8); }
-      to { opacity: 1; transform: scale(1); }
-    }
-  </style>
-</head>
-<body>
-  <!-- Butterfly intro -->
-  <div id="butterfly-overlay">
-    <img src="logo.png" alt="Prismus Bakery Logo" style="width:150px; z-index:10000;" />
-  </div>
-
-  <!-- Main Content -->
-  <header>
-    <img src="logo.png" alt="Prismus Bakery Logo" />
-    <h1>Prismus Bakery — The Ultimate Heaven Recipe</h1>
-  </header>
-
-  <section>
-    <p style="text-align:center; color:#5a3e2b;">Welcome to the sweetest corner of the internet 🍰</p>
-  </section>
-
-  <script>
-    // Create butterflies
-    const overlay = document.getElementById('butterfly-overlay');
-    for (let i = 0; i < 20; i++) {
-      const b = document.createElement('div');
-      b.classList.add('butterfly');
-      b.style.left = Math.random() * 100 + 'vw';
-      b.style.animationDuration = 3 + Math.random() * 2 + 's';
-      overlay.appendChild(b);
-    }
-
-    // Remove overlay after 5 seconds
-    setTimeout(() => {
-      overlay.style.display = 'none';
-    }, 5000);
-  </script>
-</body>
-</html>
