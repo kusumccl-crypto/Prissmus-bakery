@@ -1,196 +1,307 @@
-<!DOCTYPE html>
+        <!doctype html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prismus Bakery — The Ultimate Heaven Recipe</title>
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Prismus Bakery — The ultimate heaven recipe</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta name="description" content="Prismus Bakery — warm rustic & dreamy Ghibli café vibes. Order via WhatsApp: 92202 57229" />
   <style>
-    /* 🌰 Dark academia base theme */
-    body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background-color: #2b1d13;
-      color: #f8f4ec;
-      overflow-x: hidden;
+    :root{
+      --bg:#0b0a08; /* deep coffee */
+      --panel:#1c140f; /* dark wood panel */
+      --muted:#c8b79a; /* warm beige */
+      --cream:#f7efe6; /* cream highlight */
+      --accent:#d4a373; /* gold accent */
+      --glass: rgba(255,255,255,0.02);
+      --radius:14px;
     }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;background:radial-gradient(1200px 600px at 10% 10%, rgba(255,230,200,0.03), transparent 10%),var(--bg);color:var(--cream);-webkit-font-smoothing:antialiased}/* NAV / LAYOUT */
+.wrap{max-width:1100px;margin:0 auto;padding:20px}
+header{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 0}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{width:62px;height:62px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.15));display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.04)}
+.brand h1{font-family:'Playfair Display',serif;margin:0;font-size:20px;letter-spacing:0.6px}
+.tag{font-size:12px;color:var(--muted)}
+nav ul{Display:flex;gap:14px;list-style:none;margin:0;padding:0}
+nav a{color:var(--cream);padding:10px 12px;border-radius:10px;text-decoration:none;font-weight:600}
+nav a.active, nav a:hover{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(200,150,100,0.03));box-shadow:0 6px 18px rgba(0,0,0,0.6)}
 
-    header {
-      background-color: #3a281c;
-      padding: 15px 0;
-      text-align: center;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-    }
+/* HERO */
+.hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:18px}
+.hero-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:26px;border-radius:18px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 18px 60px rgba(2,6,10,0.6)}
+.hero h2{font-family:'Playfair Display',serif;font-size:42px;margin:0 0 8px 0}
+.hero p{color:var(--muted);margin:0 0 14px 0}
+.hero .actions{display:flex;gap:12px}
+.btn{padding:12px 16px;border-radius:12px;background:transparent;border:1px solid rgba(255,255,255,0.04);cursor:pointer;font-weight:700}
+.btn.gold{background:linear-gradient(90deg, rgba(212,163,115,0.12), rgba(212,163,115,0.06));border:1px solid rgba(212,163,115,0.28);color:var(--cream)}
 
-    header img {
-      height: 60px;
-      opacity: 0;
-      animation: logoFadeIn 2s ease forwards;
-      animation-delay: 5s; /* Appears after butterflies */
-    }
+/* PAGE SECTIONS */
+section{margin-top:28px}
+.card{background:var(--panel);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.02)}
 
-    nav {
-      margin-top: 10px;
-    }
+/* MENU */
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+.menu-item{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.05));}
+.menu-item h4{margin:0 0 6px 0;font-family:'Playfair Display',serif}
+.menu-item p{margin:0;color:var(--muted)}
 
-    nav a {
-      color: #f8f4ec;
-      text-decoration: none;
-      margin: 0 15px;
-      font-size: 18px;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.gallery-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));padding:8px;border-radius:10px;display:flex;flex-direction:column;align-items:center}
+.gallery-card img{width:100%;height:160px;object-fit:cover;border-radius:8px;box-shadow:0 8px 30px rgba(2,6,10,0.6)}
+.price{margin-top:8px;color:var(--muted);font-family:'Playfair Display',serif}
 
-    nav a:hover {
-      color: #d4af37; /* golden hover */
-    }
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 360px;gap:16px}
+.contact-card{padding:18px}
+.info-line{display:flex;gap:10px;align-items:center}
+.muted{color:var(--muted)}
 
-    section {
-      padding: 120px 20px 80px;
-      text-align: center;
-    }
+footer{margin-top:34px;color:var(--muted);font-size:13px}
 
-    #home {
-      background: #2b1d13;
-    }
+/* Responsive */
+@media (max-width:980px){.hero{grid-template-columns:1fr}.menu-grid{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:repeat(2,1fr)}.contact-grid{grid-template-columns:1fr}}
+@media (max-width:520px){.menu-grid{grid-template-columns:1fr}.brand h1{font-size:18px}}
 
-    #home h1 {
-      font-size: 36px;
-      color: #d4af37;
-    }
+/* Subtle animated flourishes */
+.fade-up{opacity:0;transform:translateY(12px);animation:fadeUp 800ms ease forwards}
+@keyframes fadeUp{to{opacity:1;transform:none}}
 
-    #gallery {
-      background: #3b291f;
-    }
+.floating{animation:floaty 6s ease-in-out infinite}
+@keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
 
-    #gallery img {
-      width: 230px;
-      height: 230px;
-      margin: 15px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
-    }
+/* Page router: show/hide */
+.page{display:none}
+.page.active{display:block}
 
-    #contact {
-      background: #2b1d13;
-    }
-
-    footer {
-      background-color: #3a281c;
-      text-align: center;
-      padding: 20px;
-      color: #d4af37;
-      font-size: 14px;
-    }
-
-    /* 🦋 Butterfly animation */
-    .butterfly {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      width: 40px;
-      height: 40px;
-      background: radial-gradient(circle, #ffd700 60%, transparent 61%);
-      border-radius: 50%;
-      opacity: 0.8;
-      animation: fly 5s ease-in-out infinite;
-      pointer-events: none;
-      z-index: 2000;
-    }
-
-    @keyframes fly {
-      0% {
-        transform: translate(0, 0) scale(1);
-        opacity: 1;
-      }
-      50% {
-        transform: translate(calc(200px - 400px * random()), calc(200px - 400px * random())) scale(1.2);
-        opacity: 0.8;
-      }
-      100% {
-        transform: translate(calc(400px - 800px * random()), calc(400px - 800px * random())) scale(0.5);
-        opacity: 0;
-      }
-    }
-
-    /* Logo fade-in */
-    @keyframes logoFadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    /* Hide butterflies after 5s */
-    #butterfly-container {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      z-index: 1500;
-      overflow: hidden;
-      animation: fadeOut 2s ease forwards;
-      animation-delay: 5s;
-    }
-
-    @keyframes fadeOut {
-      to { opacity: 0; visibility: hidden; }
-    }
+/* Little decorative ribbons */
+.ribbon{position:relative;padding:8px 12px;border-radius:10px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(0,0,0,0.05));display:inline-block}
 
   </style>
 </head>
-
 <body>
-  <!-- 🦋 Butterfly Intro -->
-  <div id="butterfly-container"></div>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" id="logoWrap">
+          <!-- logo replaced with your link -->
+          <img id="logoImg" src="https://i.postimg.cc/90qStZH2/8060830f4abd94507617895f2b018b6e-2.jpg" alt="Prismus Bakery logo" style="max-width:58px;max-height:58px;border-radius:8px;display:block" />
+        </div>
+        <div>
+          <h1 style="font-family:'Playfair Display',serif;">Prismus Bakery</h1>
+          <div class="tag">The ultimate heaven recipe</div>
+        </div>
+      </div><nav>
+    <ul>
+      <li><a href="#home" data-page="home" class="nav-link active">Home</a></li>
+      <li><a href="#menu" data-page="menu" class="nav-link">Menu</a></li>
+      <li><a href="#gallery" data-page="gallery" class="nav-link">Gallery</a></li>
+      <li><a href="#contact" data-page="contact" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <header>
-    <img src="https://i.postimg.cc/90qStZH2/8060830f4abd94507617895f2b018b6e-2.jpg" alt="Prismus Bakery Logo">
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<!-- HOME -->
+<main id="home" class="page active">
+  <section class="hero">
+    <div class="hero-card fade-up">
+      <h2 class="floating">Welcome to Prismus Bakery</h2>
+      <p class="muted">The ultimate heaven recipe</p>
+      <div style="margin-top:14px" class="actions">
+        <button class="btn gold" onclick="navigate('menu')">See Menu</button>
+        <a class="btn" href="mailto:kusumccl@gmail.com">Email Us</a>
+        <a class="btn" href="https://wa.me/919220257229" target="_blank">Message to order</a>
+      </div>
 
-  <section id="home">
-    <h1>Welcome to Prismus Bakery</h1>
-    <p>The ultimate heaven recipe — where flavor meets art. Indulge in handmade pastries, crafted with passion and poetry.</p>
+      <div style="margin-top:18px;color:var(--muted);font-size:14px">Location: RK Puram Sec 3, New Delhi — 110022</div>
+    </div>
+
+    <aside class="card fade-up">
+      <div style="text-align:center">
+        <div style="font-family:'Playfair Display',serif;font-size:24px">Prismus</div>
+        <div style="color:var(--muted);margin-top:6px">A cozy corner for pastry lovers</div>
+      </div>
+      <div style="margin-top:12px;color:var(--muted)" class="muted">Open: Mon–Sun · 8:00 AM – 8:00 PM</div>
+    </aside>
   </section>
 
-  <section id="gallery">
-    <h2>Our Creations</h2>
-    <img src="https://via.placeholder.com/230" alt="Croissant">
-    <img src="https://via.placeholder.com/230" alt="Cake">
-    <img src="https://via.placeholder.com/230" alt="Pastry">
-    <p style="color:#d4af37;">Each piece starts at ₹299 — baked to perfection.</p>
+  <section class="card fade-up" style="margin-top:22px">
+    <h3 style="margin:0 0 8px 0">Featured</h3>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px">
+      <div style="min-width:220px;padding:12px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);">
+        <strong>Signature — Chocolate Cupcake</strong>
+        <div class="muted">Rich, gooey, and topped with velvety chocolate buttercream.</div>
+      </div>
+      <div style="min-width:220px;padding:12px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);">
+        <strong>Pineapple Mini Cake</strong>
+        <div class="muted">Light sponge layered with pineapple curd and cream.</div>
+      </div>
+    </div>
   </section>
+</main>
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: hello@prismusbakery.com</p>
-    <p>Instagram: @prismusbakery</p>
-    <p>Phone: +91 98765 43210</p>
-  </section>
+<!-- MENU -->
+<section id="menu" class="page card">
+  <h2 style="margin-top:0;font-family:'Playfair Display',serif">Menu</h2>
+  <p class="muted">Warmly baked daily — handcrafted with love.</p>
+  <div class="menu-grid fade-up">
+    <div class="menu-item"><h4>Chocolate Cupcakes</h4><p class="muted">Decadent chocolate sponge with chocolate buttercream.</p></div>
+    <div class="menu-item"><h4>Chocochip Vanilla Cupcake</h4><p class="muted">Soft vanilla sponge studded with chocolate chips.</p></div>
+    <div class="menu-item"><h4>Vanilla Cupcake</h4><p class="muted">Classic vanilla with silky vanilla frosting.</p></div>
+    <div class="menu-item"><h4>Pineapple Cupcakes</h4><p class="muted">Tropical twist with fresh pineapple bits.</p></div>
+    <div class="menu-item"><h4>Mini Tarts</h4><p class="muted">Buttery crust with seasonal fruit or chocolate filling.</p></div>
+    <div class="menu-item"><h4>Pancakes</h4><p class="muted">Fluffy pancakes — morning comfort.</p></div>
+    <div class="menu-item"><h4>Pineapple Mini Cakes</h4><p class="muted">Perfectly portioned pineapple sponge.</p></div>
+    <div class="menu-item"><h4>Chocolate Mini Cakes</h4><p class="muted">Rich mini chocolate cakes for every celebration.</p></div>
+    <div class="menu-item"><h4>Vanilla Mini Cakes</h4><p class="muted">Light & creamy vanilla minis.</p></div>
+    <div class="menu-item"><h4>Espresso Mini Cake</h4><p class="muted">Aromatic espresso sponge with coffee glaze.</p></div>
+    <div class="menu-item"><h4>Choco Chip Biscuits</h4><p class="muted">Crisp-edged, chewy-centred delights.</p></div>
+    <div class="menu-item"><h4>Butter Biscuits</h4><p class="muted">Simple, buttery, melt-in-mouth.</p></div>
+    <div class="menu-item"><h4>Chocochip Vanilla Gooey Cookies</h4><p class="muted">Warm, gooey cookies with gooey centres.</p></div>
+    <div class="menu-item"><h4>Chocolate Gooey</h4><p class="muted">Lava-like chocolate pockets — pure bliss.</p></div>
+    <div class="menu-item"><h4>Espresso Cookies</h4><p class="muted">Coffee-kissed cookies — perfect with tea.</p></div>
+  </div>
+</section>
 
-  <footer>
-    <p>© 2025 Prismus Bakery. All rights reserved. Baked with love & golden dust ✨</p>
-  </footer>
+<!-- GALLERY -->
+<section id="gallery" class="page">
+  <h2 style="font-family:'Playfair Display',serif">Gallery</h2>
+  <p class="muted">Our fresh bakes — tap to view or order.</p>
+  <div class="gallery" style="margin-top:12px">
+    <div class="gallery-card">
+      <img src="https://i.postimg.cc/26SzCcRB/Screenshot-2025-11-02-19-31-08-356-com-whatsapp.jpg" alt="Espresso cookies">
+      <div class="price">Espresso cookies — ₹120 (pack of 15)</div>
+    </div>
+    <div class="gallery-card">
+      <img src="https://i.postimg.cc/B6RQNTk7/Screenshot-2025-11-02-19-31-05-067-com-whatsapp.jpg" alt="Gooey biscuits">
+      <div class="price">Gooey biscuits — ₹120 (pack of 4)</div>
+    </div>
+    <div class="gallery-card">
+      <img src="https://i.postimg.cc/LsbH6kHv/Screenshot-2025-11-02-19-31-02-226-com-whatsapp.jpg" alt="Espresso mini cakes">
+      <div class="price">Espresso mini cakes — ₹230</div>
+    </div>
+    <div class="gallery-card">
+      <img src="https://i.postimg.cc/rFMLTZ14/Screenshot-2025-11-02-19-30-59-625-com-whatsapp.jpg" alt="Vanilla mini cakes">
+      <div class="price">Vanilla mini cakes — ₹200</div>
+    </div>
+    <div class="gallery-card">
+      <img src="https://i.postimg.cc/j50FXCvd/Screenshot-2025-11-02-19-30-56-990-com-whatsapp.jpg" alt="Chocolate mini cakes">
+      <div class="price">Chocolate mini cakes — ₹250</div>
+    </div>
+    <div class="gallery-card">
+      <img src="https://i.postimg.cc/DwRjvm9b/Screenshot-2025-11-02-19-30-54-313-com-whatsapp.jpg" alt="Tarts">
+      <div class="price">Tarts — ₹100</div>
+    </div>
+    <div class="gallery-card">
+      <img src="https://i.postimg.cc/k4svb5HJ/Screenshot-2025-11-02-19-30-51-678-com-whatsapp.jpg" alt="Pineapple cupcakes">
+      <div class="price">Pineapple cupcakes — ₹50 / pc</div>
+    </div>
+    <div class="gallery-card">
+      <img src="https://i.postimg.cc/LX9z2p8B/Screenshot-2025-11-02-19-30-48-863-com-whatsapp.jpg" alt="Vanilla chocochip cupcake">
+      <div class="price">Vanilla chocochip cupcake — ₹60 / pc</div>
+    </div>
+    <div class="gallery-card">
+      <img src="https://i.postimg.cc/rpJrhPNd/Screenshot-2025-11-02-19-30-41-736-com-whatsapp.jpg" alt="Chocolate espresso cupcakes">
+      <div class="price">Chocolate espresso cupcakes — ₹50 / pc</div>
+    </div>
+    <div class="gallery-card">
+      <img src="https://i.postimg.cc/fy4SkQzw/Screenshot-2025-11-02-19-30-29-433-com-whatsapp.jpg" alt="Chocolate cupcake">
+      <div class="price">Chocolate cupcake — ₹50 / pc</div>
+    </div>
+    <div class="gallery-card">
+      <img src="https://i.postimg.cc/05dy7wZ9/Screenshot-2025-11-02-20-05-12-296-com-whatsapp.jpg" alt="Customize cupcakes">
+      <div class="price">Customize cupcakes for events — message to order</div>
+    </div>
+  </div>
+</section>
 
-  <script>
-    // 🦋 Butterfly burst effect for 5 seconds
-    const container = document.getElementById('butterfly-container');
-    for (let i = 0; i < 25; i++) {
-      const b = document.createElement('div');
-      b.classList.add('butterfly');
-      b.style.left = Math.random() * 100 + '%';
-      b.style.top = Math.random() * 100 + '%';
-      b.style.animationDelay = (Math.random() * 1.5) + 's';
-      b.style.transform = `scale(${0.5 + Math.random()})`;
-      container.appendChild(b);
+<!-- CONTACT -->
+<section id="contact" class="page card">
+  <h2 style="margin-top:0;font-family:'Playfair Display',serif">Contact</h2>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <p class="muted">For orders and quick messages, WhatsApp us or call.</p>
+      <div style="margin-top:12px" class="info-line">
+        <button class="btn gold" onclick="openWhatsApp()">Message to order • 92202 57229</button>
+      </div>
+
+      <div style="margin-top:14px">
+        <div class="muted">Email</div>
+        <div><a href="mailto:kusumccl@gmail.com" style="color:var(--cream);font-weight:700">kusumccl@gmail.com</a></div>
+      </div>
+
+      <div style="margin-top:14px">
+        <div class="muted">Address</div>
+        <div>RK Puram Sec 3, New Delhi — 110022</div>
+        <div style="margin-top:8px"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=RK+Puram+Sec+3+110022" class="muted">Open in Google Maps</a></div>
+      </div>
+    </div>
+
+    <aside class="card">
+      <h4 style="margin-top:0">Visit & order</h4>
+      <p class="muted">We prepare fresh batches throughout the day. For bulk orders, please message ahead.</p>
+      <div style="margin-top:12px" class="muted">Opening hours</div>
+      <div style="margin-top:6px">Mon–Sun · 8:00 AM – 8:00 PM</div>
+      <div style="margin-top:12px">
+        <button class="btn" onclick="copyNumber()">Copy number</button>
+        <button class="btn" onclick="openWhatsApp()">WhatsApp</button>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<footer>
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+    <div class="muted">© Prismus Bakery • The ultimate heaven recipe</div>
+    <div class="muted">Made with warmth & a pinch of stardust ✨</div>
+  </div>
+</footer>
+
+  </div>  <script>
+    // Simple page router (hash-based)
+    function navigate(page){
+      document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+      const el=document.getElementById(page);
+      if(el) el.classList.add('active');
+      document.querySelectorAll('.nav-link').forEach(a=>a.classList.remove('active'));
+      const link=document.querySelector('[data-page="'+page+'"]');
+      if(link) link.classList.add('active');
+      window.location.hash = page;
+      // small staggered reveal
+      setTimeout(()=>{document.querySelectorAll('#'+page+' .fade-up, #'+page+' .menu-item, #'+page+' .placeholder').forEach((el,i)=>{el.style.animationDelay=(i*80)+'ms';el.classList.add('fade-up')})},60)
     }
-    setTimeout(() => container.remove(), 7000); // remove completely after fade
-  </script>
+
+    // Init router
+    (function(){
+      const hash = (window.location.hash||'#home').substring(1);
+      navigate(hash);
+      // nav link clicks
+      document.querySelectorAll('.nav-link').forEach(a=>a.addEventListener('click', e=>{e.preventDefault();navigate(a.dataset.page)}))
+    })();
+
+    function openWhatsApp(){
+      // open international wa.me link
+      window.open('https://wa.me/919220257229','_blank');
+    }
+    function copyNumber(){
+      navigator.clipboard && navigator.clipboard.writeText('9220257229');
+      alert('Number copied! 92202 57229');
+    }
+
+    // small entrance animations for hero elements
+    window.addEventListener('load', ()=>{
+      document.querySelectorAll('.fade-up').forEach((el,i)=>{el.style.animationDelay=(i*120)+'ms';el.classList.add('fade-up')});
+      // floating accents
+      setTimeout(()=>{document.querySelectorAll('.floating').forEach(el=>el.classList.add('floating'))},400)
+    })
+  </script></body>
+  </footer>
+<div style="text-align:center;margin-top:24px;font-size:14px;color:var(--muted);font-family:'Playfair Display',serif;">
+  — Handcrafted with love by <span style="color:var(--cream);font-weight:600;">Kusum</span> ♡
+</div>
 </body>
 </html>
