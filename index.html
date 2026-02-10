@@ -4,129 +4,85 @@
 <meta charset="UTF-8">
 <title>For My Valentine 💖</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond&display=swap" rel="stylesheet">
 
 <style>
 body {
   margin: 0;
   height: 100vh;
-  background: radial-gradient(circle at top, #3b0f14, #140507);
+  background: #2b0a0a;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
   font-family: 'Cormorant Garamond', serif;
+  color: #3b1c1c;
 }
 
-body::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
-  opacity: 0.4;
-}
-
-.book {
-  width: 360px;
-  height: 560px;
-  position: relative;
+.container {
+  width: 90%;
+  max-width: 400px;
+  background: #f7ead3;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
 }
 
 .page {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #fbf3e8, #f1dfc5);
-  border-radius: 12px;
-  padding: 28px;
-  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
   display: none;
-  animation: turn 0.7s ease;
 }
 
 .page.active {
   display: block;
 }
 
-@keyframes turn {
-  from {
-    opacity: 0;
-    transform: translateX(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.content {
-  color: #3b1c1c;
-  font-size: 16px;
-  line-height: 1.65;
+.title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 38px;
+  color: #8b1e3f;
   text-align: center;
 }
 
-.letter {
-  text-align: left;
-  font-size: 14px;
-}
-
-.title {
-  font-family: 'Great Vibes', cursive;
-  font-size: 40px;
-  color: #8b1e3f;
-  margin-bottom: 10px;
+p {
+  line-height: 1.6;
+  font-size: 16px;
 }
 
 button {
-  margin-top: 22px;
-  padding: 10px 26px;
+  margin-top: 20px;
+  padding: 10px 20px;
   border: none;
-  border-radius: 30px;
+  border-radius: 25px;
   font-size: 16px;
   cursor: pointer;
-  background: linear-gradient(45deg, gold, #ffd700);
+  background: #d4af37;
 }
 
 .yes {
-  background: linear-gradient(45deg, #ff4d6d, #ff9bb3);
+  background: #ff4d6d;
+  color: white;
 }
 
 .no {
-  position: absolute;
-}
-
-/* hearts */
-.heart {
-  position: absolute;
-  font-size: 18px;
-  animation: float 6s linear forwards;
-}
-
-@keyframes float {
-  from { transform: translateY(0); opacity: 1; }
-  to { transform: translateY(-700px); opacity: 0; }
+  position: relative;
 }
 </style>
 </head>
 
 <body>
 
-<div class="book">
+<div class="container">
 
-<!-- PAGE 1 -->
-<div class="page active">
-  <div class="content">
-    <div class="title">For You 💌</div>
-    <p>Click on me to start</p>
-    <button onclick="next()">Open ✨</button>
+  <!-- PAGE 1 -->
+  <div class="page active">
+    <div class="title">Hey You 💌</div>
+    <p style="text-align:center;">Click on me to start</p>
+    <button onclick="next()">Start ✨</button>
   </div>
-</div>
 
-<!-- PAGE 2 -->
-<div class="page">
-  <div class="content">
+  <!-- PAGE 2 -->
+  <div class="page">
     <p>
-      It’s been 1 year and 8 months and this year we are in a longgggg long distance relationship.
+      It’s been <b>1 year and 8 months</b> and this year we are in a longgggg long distance relationship.
       <br><br>
       A lot of things happened but we stayed strong and stayed together no matter wut.
       <br><br>
@@ -134,20 +90,16 @@ button {
     </p>
     <button onclick="next()">Next ➜</button>
   </div>
-</div>
 
-<!-- PAGE 3 -->
-<div class="page">
-  <div class="content">
+  <!-- PAGE 3 -->
+  <div class="page">
     <div class="title">Wait…</div>
     <p>There is something for u on the next page 💝</p>
-    <button onclick="next()">Turn page ✨</button>
+    <button onclick="next()">Next ✨</button>
   </div>
-</div>
 
-<!-- PAGE 4 FULL LETTER -->
-<div class="page">
-  <div class="content letter">
+  <!-- PAGE 4 LETTER -->
+  <div class="page">
     <p>
 <b>My love,</b><br><br>
 I don’t even know where to begin, because our story never really had a clear beginning..it just happened.
@@ -186,58 +138,40 @@ Always yours,<br>
     </p>
     <button onclick="next()">Next 💌</button>
   </div>
-</div>
 
-<!-- PAGE 5 -->
-<div class="page">
-  <div class="content">
+  <!-- PAGE 5 -->
+  <div class="page">
     <div class="title">So…</div>
     <p>Will u be my Valentine??? 💕</p>
     <button class="yes" onclick="next()">YES 😍</button>
     <button class="no" id="no">No 🙄</button>
   </div>
-</div>
 
-<!-- PAGE 6 -->
-<div class="page">
-  <div class="content">
+  <!-- PAGE 6 -->
+  <div class="page">
     <div class="title">YAYYYYY 🎉💖</div>
     <p>
-      I KNOW U WOULD CHOOSE MEEE 😌💘<br><br>
+      I KNEW U WOULD CHOOSE MEEE 😌💘<br><br>
       NOW GO ON TELEGRAM AND TAKE ME ON A DATEE!!!!!!!!!!!!!!
     </p>
   </div>
-</div>
 
 </div>
 
 <script>
-let index = 0;
+let pageIndex = 0;
 const pages = document.querySelectorAll('.page');
 
 function next() {
-  pages[index].classList.remove('active');
-  index++;
-  pages[index].classList.add('active');
+  pages[pageIndex].classList.remove('active');
+  pageIndex++;
+  pages[pageIndex].classList.add('active');
 }
 
-/* no button escape */
-const no = document.getElementById('no');
-no.addEventListener('mouseover', () => {
-  no.style.left = Math.random() * 200 + 'px';
-  no.style.top = Math.random() * 200 + 'px';
+const no = document.getElementById("no");
+no.addEventListener("mouseover", () => {
+  no.style.left = Math.random() * 120 + "px";
 });
-
-/* hearts */
-setInterval(() => {
-  const h = document.createElement("div");
-  h.className = "heart";
-  h.innerHTML = "💖";
-  h.style.left = Math.random() * 100 + "vw";
-  h.style.bottom = "0";
-  document.body.appendChild(h);
-  setTimeout(() => h.remove(), 6000);
-}, 500);
 </script>
 
 </body>
