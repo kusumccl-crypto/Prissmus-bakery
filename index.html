@@ -7,9 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
 
 <style>
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -22,7 +20,6 @@ body {
   font-family: 'Cormorant Garamond', serif;
 }
 
-/* Sparkle texture */
 body::before {
   content: "";
   position: absolute;
@@ -31,15 +28,13 @@ body::before {
   opacity: 0.4;
 }
 
-/* Book */
 .book {
   width: 360px;
-  height: 520px;
+  height: 540px;
   position: relative;
   perspective: 2500px;
 }
 
-/* Pages */
 .page {
   position: absolute;
   inset: 0;
@@ -47,11 +42,9 @@ body::before {
   border-radius: 10px;
   transform-origin: left;
   transform-style: preserve-3d;
-  transition: transform 1.6s cubic-bezier(.77,0,.18,1);
-  box-shadow:
-    inset 0 0 40px rgba(0,0,0,0.08),
-    0 25px 50px rgba(0,0,0,0.5);
-  padding: 30px;
+  transition: transform 1.5s cubic-bezier(.77,0,.18,1);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  padding: 28px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,26 +52,13 @@ body::before {
   backface-visibility: hidden;
 }
 
-.page::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, rgba(0,0,0,0.15), transparent 40%);
-  opacity: 0;
-  transition: opacity 1s;
-}
-
 .page.flipped {
   transform: rotateY(-180deg);
 }
 
-.page.flipped::after {
-  opacity: 1;
-}
-
 .content {
   color: #3b1c1c;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.65;
 }
 
@@ -90,15 +70,13 @@ body::before {
 }
 
 button {
-  margin-top: 25px;
+  margin-top: 22px;
   padding: 10px 26px;
   border: none;
   border-radius: 30px;
   font-size: 16px;
   cursor: pointer;
-  font-family: inherit;
   background: linear-gradient(45deg, gold, #ffd700);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
 .yes {
@@ -113,7 +91,7 @@ button {
 .heart {
   position: absolute;
   font-size: 18px;
-  animation: float 7s linear forwards;
+  animation: float 6s linear forwards;
 }
 
 @keyframes float {
@@ -128,59 +106,69 @@ button {
 <div class="book">
 
   <!-- PAGE 1 -->
-  <div class="page" id="p1">
+  <div class="page" style="z-index:6" id="p1">
     <div class="content">
       <div class="title">For You 💌</div>
       <p>Click on me to start</p>
-      <button onclick="flip(1)">Open the book ✨</button>
+      <button onclick="flip(1)">Open ✨</button>
     </div>
   </div>
 
   <!-- PAGE 2 -->
-  <div class="page" id="p2">
+  <div class="page" style="z-index:5" id="p2">
     <div class="content">
       <p>
-        It’s been <b>1 year and 8 months</b>…<br>
-        and this year we are in a loooooong long distance relationship.
+        It’s been <b>1 year and 8 months</b> and this year we are in a longgggg long distance relationship.
         <br><br>
-        A lot of things happened, but we stayed strong and stayed together no matter what.
+        A lot of things happened but we stayed strong and stayed together no matter wut.
         <br><br>
-        I love you aloy baby and you’re my favourite person on this planet 😋💕💗🤪🥺🥰🥳👊🥰😚💋
+        I love you aloy baby and ur my favourite person on this planet 😋💕💗🤪🥺🥰🥳👊🥰🥰😚😚💋💋
       </p>
-      <button onclick="flip(2)">Turn page ➜</button>
+      <button onclick="flip(2)">Next ➜</button>
     </div>
   </div>
 
   <!-- PAGE 3 -->
-  <div class="page" id="p3">
+  <div class="page" style="z-index:4" id="p3">
     <div class="content">
-      <div class="title">Just one thing…</div>
-      <p>There is something for you on the next page 💖</p>
-      <button onclick="flip(3)">Next ✨</button>
+      <div class="title">Wait…</div>
+      <p>There is something for u on the next page 💝</p>
+      <button onclick="flip(3)">Turn page ✨</button>
     </div>
   </div>
 
-  <!-- PAGE 4 -->
-  <div class="page" id="p4">
-    <div class="content" style="font-size:15px;">
+  <!-- PAGE 4 — FULL LETTER (UNCUT) -->
+  <div class="page" style="z-index:3" id="p4">
+    <div class="content" style="font-size:14px; text-align:left;">
       <p>
         <b>My love,</b><br><br>
-        I don’t even know where to begin, because our story never really had a clear beginning…
-        it just happened.
+        I don’t even know where to begin, because our story never really had a clear beginning..it just happened.
         Somewhere between small conversations, shy smiles, and moments that felt ordinary back then,
         you slowly became my favourite part of every day.
         <br><br>
-        I didn’t know talking to you would turn into missing you.
-        I didn’t know your name would start feeling like home.
-        Distance stood between us, yet somehow made my love for you grow deeper.
+        I still remember how it all started… how I didn’t know that talking to you would turn into missing you,
+        how your name would start feeling like home.
+        I didn’t know that one day, distance would stand between us,
+        and yet somehow make my love for you grow even deeper.
+        Funny how life works, right?
         <br><br>
-        We’re here loving each other from miles away, holding onto calls, texts, and memories like lifelines.
-        Some days it hurts, but even then—you remain constant. You remain mine.
+        Now we’re here looooving each other from miles away,
+        counting days instead of minutes,
+        holding onto calls, texts, and memories like they’re lifelines.
+        Long distance isn’t easy.
+        Some days it hurts more than I admit.
+        Some nights I wish I could just reach out and feel your presence instead of staring at a screen.
+        But even in the distance, you remain constant.
+        You remain mine.
         <br><br>
-        What we have isn’t just love.
-        It’s patience, trust, hope, and the promise that this phase is not forever.
+        What we have isn’t just love..it’s patience, trust, hope,
+        and the quiet promise that this phase is not forever.
+        I hold onto the thought of a future where distance is just a chapter we survived together.
+        A future where I don’t have to miss you, because you’re right there.
         <br><br>
+        Thank you for choosing me every day, even when it’s hard.
         Thank you for being my safe place, my strength, my chocolate cupcake.
+        If love had a shape, it would look like us..imperfect, real, and still standing strong.
         <br><br>
         <b>Happy Valentine’s Day, my Reyansh.</b><br>
         No matter how far you are, my heart has never been closer to anyone.
@@ -193,23 +181,22 @@ button {
   </div>
 
   <!-- PAGE 5 -->
-  <div class="page" id="p5">
+  <div class="page" style="z-index:2" id="p5">
     <div class="content">
       <div class="title">So…</div>
-      <p>Will you be my Valentine? 💕</p>
+      <p>Will u be my Valentine??? 💕</p>
       <button class="yes" onclick="flip(5)">YES 😍</button>
-      <button class="no" id="no">No 😒</button>
+      <button class="no" id="no">No 🙄</button>
     </div>
   </div>
 
   <!-- PAGE 6 -->
-  <div class="page" id="p6">
+  <div class="page" style="z-index:1" id="p6">
     <div class="content">
       <div class="title">YAYYYYY 🎉💖</div>
       <p>
-        I KNEW YOU’D CHOOSE MEEE 😌💘<br><br>
-        NOW GO ON TELEGRAM<br>
-        AND TAKE ME ON A DATE!!!!!!!!!!!!!!
+        I KNOW U WOULD CHOOSE MEEE 😌💘<br><br>
+        NOW GO ON TELEGRAM AND TAKE ME ON A DATEE!!!!!!!!!!!!!!
       </p>
     </div>
   </div>
@@ -221,23 +208,23 @@ function flip(n) {
   document.getElementById("p" + n).classList.add("flipped");
 }
 
-/* No button escape */
+/* No button runs away */
 const no = document.getElementById("no");
 no.addEventListener("mouseover", () => {
   no.style.left = Math.random() * 220 + "px";
   no.style.top = Math.random() * 220 + "px";
 });
 
-/* Hearts */
+/* Floating hearts */
 setInterval(() => {
   const h = document.createElement("div");
   h.className = "heart";
-  h.innerHTML = Math.random() > 0.5 ? "💖" : "💗";
+  h.innerHTML = "💖";
   h.style.left = Math.random() * 100 + "vw";
   h.style.bottom = "0";
   document.body.appendChild(h);
-  setTimeout(() => h.remove(), 7000);
-}, 400);
+  setTimeout(() => h.remove(), 6000);
+}, 450);
 </script>
 
 </body>
