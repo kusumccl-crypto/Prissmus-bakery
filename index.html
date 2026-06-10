@@ -1,177 +1,790 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>For My Valentine 💖</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>2 Years of Tolerating Our Asses 💌</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin: 0;
-  height: 100vh;
-  background: #2b0a0a;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Cormorant Garamond', serif;
-  color: #3b1c1c;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
-.container {
-  width: 90%;
-  max-width: 400px;
-  background: #f7ead3;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+body{
+    background:#fff8f6;
+    overflow:hidden;
+    color:#5d4b4b;
 }
 
-.page {
-  display: none;
+.page{
+    width:100vw;
+    height:100vh;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    padding:25px;
+    text-align:center;
+    position:absolute;
+    top:0;
+    left:0;
+    animation:fade .5s ease;
 }
 
-.page.active {
-  display: block;
+.page.active{
+    display:flex;
 }
 
-.title {
-  font-family: 'Great Vibes', cursive;
-  font-size: 38px;
-  color: #8b1e3f;
-  text-align: center;
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
-p {
-  line-height: 1.6;
-  font-size: 16px;
+.card{
+    background:#fff;
+    width:95%;
+    max-width:420px;
+    border-radius:28px;
+    padding:35px 25px;
+    box-shadow:0 8px 30px rgba(255,170,170,.18);
+    position:relative;
 }
 
-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 25px;
-  font-size: 16px;
-  cursor: pointer;
-  background: #d4af37;
+h1{
+    font-size:2rem;
+    line-height:1.2;
+    margin-bottom:14px;
+    color:#5a4343;
 }
 
-.yes {
-  background: #ff4d6d;
-  color: white;
+.subtitle{
+    color:#8c7272;
+    font-size:.95rem;
+    line-height:1.6;
+    margin-bottom:25px;
 }
 
-.no {
-  position: relative;
+.btn{
+    border:none;
+    background:#ff7f92;
+    color:white;
+    padding:14px 22px;
+    border-radius:999px;
+    cursor:pointer;
+    font-size:1rem;
+    margin:8px;
+    transition:.25s ease;
+    box-shadow:0 6px 15px rgba(255,127,146,.25);
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.secondary-btn{
+    background:#ffe2e6;
+    color:#c45d70;
+}
+
+.music-btn{
+    position:fixed;
+    top:18px;
+    right:18px;
+    background:#fff;
+    border:none;
+    border-radius:999px;
+    width:52px;
+    height:52px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    font-size:1.2rem;
+    cursor:pointer;
+    z-index:99;
+}
+
+.hearts{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+.heart{
+    position:absolute;
+    font-size:16px;
+    opacity:.25;
+    animation:float 7s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+    20%{
+        opacity:.3;
+    }
+    to{
+        transform:translateY(-120px);
+        opacity:0;
+    }
+}
+
+.continue-btn{
+    margin-top:12px;
+}
+
+.small-note{
+    margin-top:15px;
+    color:#b39191;
+    font-size:.85rem;
+}
+
+@media(max-width:450px){
+    h1{
+        font-size:1.7rem;
+    }
+
+    .card{
+        padding:28px 20px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<button class="music-btn" onclick="toggleMusic()">
+🎵
+</button>
 
-  <!-- PAGE 1 -->
-  <div class="page active">
-    <div class="title">Hey You 💌</div>
-    <p style="text-align:center;">Click on me to start</p>
-    <button onclick="next()">Start ✨</button>
-  </div>
+<audio id="bgMusic" loop>
+    <!-- PUT YOUR LOFI MP3 FILE HERE -->
+    <source src="lofi.mp3" type="audio/mpeg">
+</audio>
 
-  <!-- PAGE 2 -->
-  <div class="page">
-    <p>
-      It’s been <b>1 year and 8 months</b> and this year we are in a longgggg long distance relationship.
-      <br><br>
-      A lot of things happened but we stayed strong and stayed together no matter wut.
-      <br><br>
-      I love you aloy baby and ur my favourite person on this planet 😋💕💗🤪🥺🥰🥳👊🥰🥰😚😚💋💋
-    </p>
-    <button onclick="next()">Next ➜</button>
-  </div>
+<div class="hearts" id="hearts"></div>
 
-  <!-- PAGE 3 -->
-  <div class="page">
-    <div class="title">Wait…</div>
-    <p>There is something for u on the next page 💝</p>
-    <button onclick="next()">Next ✨</button>
-  </div>
+<!-- PAGE 1 -->
 
-  <!-- PAGE 4 LETTER -->
-  <div class="page">
-    <p>
-<b>My love,</b><br><br>
-I don’t even know where to begin, because our story never really had a clear beginning..it just happened.
-Somewhere between small conversations, shy smiles, and moments that felt ordinary back then,
-you slowly became my favourite part of every day.
-<br><br>
-I still remember how it all started… how I didn’t know that talking to you would turn into missing you,
-how your name would start feeling like home.
-I didn’t know that one day, distance would stand between us,
-and yet somehow make my love for you grow even deeper.
-Funny how life works, right?
-<br><br>
-Now we’re here looooving each other from miles away,
-counting days instead of minutes,
-holding onto calls, texts, and memories like they’re lifelines.
-Long distance isn’t easy.
-Some days it hurts more than I admit.
-Some nights I wish I could just reach out and feel your presence instead of staring at a screen.
-But even in the distance, you remain constant.
-You remain mine.
-<br><br>
-What we have isn’t just love..it’s patience, trust, hope,
-and the quiet promise that this phase is not forever.
-I hold onto the thought of a future where distance is just a chapter we survived together.
-A future where I don’t have to miss you, because you’re right there.
-<br><br>
-Thank you for choosing me every day, even when it’s hard.
-Thank you for being my safe place, my strength, my chocolate cupcake.
-If love had a shape, it would look like us..imperfect, real, and still standing strong.
-<br><br>
-<b>Happy Valentine’s Day, my Reyansh.</b><br>
-No matter how far you are, my heart has never been closer to anyone.
-<br><br>
-Always yours,<br>
-<i>Paro (Soumya)</i> 💖
-    </p>
-    <button onclick="next()">Next 💌</button>
-  </div>
+<section class="page active" id="page1">
+    <div class="card">
+        <h1>
+            it’s been 2 years <br>
+            we’ve been tolerating our asses
+        </h1>
 
-  <!-- PAGE 5 -->
-  <div class="page">
-    <div class="title">So…</div>
-    <p>Will u be my Valentine??? 💕</p>
-    <button class="yes" onclick="next()">YES 😍</button>
-    <button class="no" id="no">No 🙄</button>
-  </div>
+        <p class="subtitle">
+            honestly impressive. should we get an award or something?
+        </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>2 Years of Tolerating Our Asses 💌</title>
 
-  <!-- PAGE 6 -->
-  <div class="page">
-    <div class="title">YAYYYYY 🎉💖</div>
-    <p>
-      I KNEW U WOULD CHOOSE MEEE 😌💘<br><br>
-      NOW GO ON TELEGRAM AND TAKE ME ON A DATEE!!!!!!!!!!!!!!
-    </p>
-  </div>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-</div>
-
-<script>
-let pageIndex = 0;
-const pages = document.querySelectorAll('.page');
-
-function next() {
-  pages[pageIndex].classList.remove('active');
-  pageIndex++;
-  pages[pageIndex].classList.add('active');
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
-const no = document.getElementById("no");
-no.addEventListener("mouseover", () => {
-  no.style.left = Math.random() * 120 + "px";
+body{
+    background:#fff8f6;
+    overflow:hidden;
+    color:#5d4b4b;
+}
+
+.page{
+    width:100vw;
+    height:100vh;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    padding:25px;
+    text-align:center;
+    position:absolute;
+    top:0;
+    left:0;
+    animation:fade .5s ease;
+}
+
+.page.active{
+    display:flex;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.card{
+    background:#fff;
+    width:95%;
+    max-width:420px;
+    border-radius:28px;
+    padding:35px 25px;
+    box-shadow:0 8px 30px rgba(255,170,170,.18);
+    position:relative;
+}
+
+h1{
+    font-size:2rem;
+    line-height:1.2;
+    margin-bottom:14px;
+    color:#5a4343;
+}
+
+.subtitle{
+    color:#8c7272;
+    font-size:.95rem;
+    line-height:1.6;
+    margin-bottom:25px;
+}
+
+.btn{
+    border:none;
+    background:#ff7f92;
+    color:white;
+    padding:14px 22px;
+    border-radius:999px;
+    cursor:pointer;
+    font-size:1rem;
+    margin:8px;
+    transition:.25s ease;
+    box-shadow:0 6px 15px rgba(255,127,146,.25);
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.secondary-btn{
+    background:#ffe2e6;
+    color:#c45d70;
+}
+
+.music-btn{
+    position:fixed;
+    top:18px;
+    right:18px;
+    background:#fff;
+    border:none;
+    border-radius:999px;
+    width:52px;
+    height:52px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    font-size:1.2rem;
+    cursor:pointer;
+    z-index:99;
+}
+
+.hearts{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+.heart{
+    position:absolute;
+    font-size:16px;
+    opacity:.25;
+    animation:float 7s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+    20%{
+        opacity:.3;
+    }
+    to{
+        transform:translateY(-120px);
+        opacity:0;
+    }
+}
+
+.continue-btn{
+    margin-top:12px;
+}
+
+.small-note{
+    margin-top:15px;
+    color:#b39191;
+    font-size:.85rem;
+}
+
+@media(max-width:450px){
+    h1{
+        font-size:1.7rem;
+    }
+
+    .card{
+        padding:28px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<button class="music-btn" onclick="toggleMusic()">
+🎵
+</button>
+
+<audio id="bgMusic" loop>
+    <!-- PUT YOUR LOFI MP3 FILE HERE -->
+    <source src="lofi.mp3" type="audio/mpeg">
+</audio>
+
+<div class="hearts" id="hearts"></div>
+
+<!-- PAGE 1 -->
+
+<section class="page active" id="page1">
+    <div class="card">
+        <h1>
+            it’s been 2 years <br>
+            we’ve been tolerating our asses
+        </h1>
+
+        <p class="subtitle">
+            honestly impressive. should we get an award or something?
+        </p>
+
+        <button class="btn" onclick="nextPage(2)">
+            open surprise 💖
+        </button>
+
+        <button class="btn secondary-btn" id="ignoreBtn">
+            ignore?
+        </button>
+
+        <p class="small-note">
+            (wrong answer btw)
+        </p>
+    </div>
+</section>
+
+<!-- PAGE 2 -->
+
+<section class="page" id="page2">
+    <div class="card">
+        <h1>
+            Happy 2 Years, <br>
+            Reyansh 💌
+        </h1>
+
+        <p class="subtitle">
+            2 years of love, yapping,
+            missing you, and somehow still
+            choosing each other.
+        </p>
+
+        <button class="btn continue-btn"
+        onclick="nextPage(3)">
+            continue before i cry →
+        </button>
+    </div>
+</section>
+
+<script>
+function nextPage(page){
+    document.querySelectorAll('.page')
+    .forEach(p=>p.classList.remove('active'));
+
+    document
+    .getElementById(`page${page}`)
+    .classList.add('active');
+}
+
+const texts=[
+"be serious",
+"rude.",
+"try again 😒",
+"my chocolate cupcake pls",
+"wrong answer."
+];
+
+let clickCount=0;
+
+document.getElementById("ignoreBtn")
+.addEventListener("click",function(){
+    this.innerText=
+    texts[clickCount % texts.length];
+    clickCount++;
 });
+
+function toggleMusic(){
+    const music=
+    document.getElementById("bgMusic");
+
+    if(music.paused){
+        music.play();
+    }else{
+        music.pause();
+    }
+}
+
+function createHearts(){
+    const container=
+    document.getElementById("hearts");
+
+    setInterval(()=>{
+        const heart=
+        document.createElement("div");
+
+        heart.classList.add("heart");
+        heart.innerHTML="♡";
+
+        heart.style.left=
+        Math.random()*100+"vw";
+
+        heart.style.animationDuration=
+        (5+Math.random()*5)+"s";
+
+        container.appendChild(heart);
+
+        setTimeout(()=>{
+            heart.remo
+  ve();
+        },8000);
+
+    },500);
+}
+
+createHearts();
+</script> 
+  <!-- PAGE 3 -->
+
+<section class="page" id="page3">
+    <div class="card">
+        <h1>
+            What are we feeling?
+        </h1>
+
+        <p class="subtitle">
+            pick as many as u want.
+            i’ll emotionally recover.
+        </p>
+
+        <div class="activity-grid">
+
+            <button class="activity-btn">
+                🎬 Movie
+            </button>
+
+            <button class="activity-btn">
+                🍪 Baking
+            </button>
+
+            <button class="activity-btn">
+                ☕ Coffee
+            </button>
+
+            <button class="activity-btn">
+                🍝 Cooking
+            </button>
+
+            <button class="activity-btn">
+                🗣️ Yapping
+            </button>
+
+            <button class="activity-btn">
+                🚶‍♀️🌧️ Walk in rain
+            </button>
+
+            <button class="activity-btn">
+                🎮 Games
+            </button>
+
+            <button class="activity-btn">
+                🎵 Late night calls
+            </button>
+
+            <button class="activity-btn">
+                💌 Deep talks
+            </button>
+
+        </div>
+
+        <button class="btn continue-btn"
+        onclick="nextPage(4)">
+            continue →
+        </button>
+    </div>
+</section>
+
+<!-- PAGE 4 -->
+
+<section class="page" id="page4">
+    <div class="card">
+        <h1>
+            When are you stealing my time?
+        </h1>
+
+        <p class="subtitle">
+            no pressure.
+            but i’ll be waiting dramatically.
+        </p>
+
+        <input type="date"
+        id="datePicker"
+        class="cute-input">
+
+        <input type="time"
+        id="timePicker"
+        class="cute-input">
+
+        <button class="btn continue-btn"
+        onclick="showDatePage()">
+            continue →
+        </button>
+    </div>
+</section>
+
+<!-- PAGE 5 -->
+
+<section class="page" id="page5">
+    <div class="card">
+        <h1>
+            It’s a date! 💖
+        </h1>
+
+        <p class="subtitle"
+        id="dateSummary">
+        </p>
+
+        <p class="small-note">
+            screenshoted. no take-backs.
+            relationship policy.
+        </p>
+
+        <button class="btn"
+        onclick="nextPage(6)">
+            open anniversary letter 💌
+        </button>
+    </div>
+</section>
+
+<!-- PAGE 6 -->
+
+<section class="page" id="page6">
+    <div class="card">
+        <h1>
+            To Reyansh 💌
+        </h1>
+
+        <div class="letter">
+
+            <p>
+            Okay first of all...
+            congratulations 😌
+            we officially survived
+            <b>2 whole years of tolerating
+            our nonsense.</b>
+            honestly? kinda iconic of us.
+            </p>
+
+            <br>
+
+            <p>
+            But jokes aside,
+            thank you for staying.
+            Thank you for choosing me
+            on good days, bad days,
+            weird days, stressful days,
+            and even the days when
+            distance felt unfair.
+            </p>
+
+            <br>
+
+            <p>
+            These two years haven’t just
+            been time passing.
+            They’ve been memories,
+            late-night talks,
+            random laughter,
+            missing each other too much,
+            silly fights,
+            making up,
+            and somehow still finding
+            our way back to each other.
+            </p>
+
+            <br>
+
+            <p>
+            Sometimes you annoy me.
+            like... A LOT 😒
+            but unfortunately for both
+            of us,
+            i love you very much.
+            so yeah,
+            you’re kinda stuck with me.
+            </p>
+
+            <br>
+
+            <p>
+            Happy 2 years,
+            <b>my chocolate cupcake</b> 💌
+            </p>
+
+            <br>
+
+            <p>
+            Thank you for the laughs,
+            comfort, patience,
+            love, and for being someone
+            i can imagine so many
+            tomorrows with.
+            </p>
+
+            <br>
+
+            <p>
+            Here’s to more yapping,
+            more memories,
+            more stupid jokes,
+            more love,
+            and hopefully
+            a lot more years of
+            tolerating our asses together.
+            </p>
+
+            <br>
+
+            <p>
+            forever your paro 💖
+            <br><br>
+            love u,
+            <b>my chocolate cupcake</b>
+            </p>
+
+        </div>
+    </div>
+</section>
+
+<style>
+.activity-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+margin:20px 0;
+}
+
+.activity-btn{
+border:none;
+padding:14px;
+border-radius:20px;
+background:#fff4f6;
+cursor:pointer;
+font-size:.95rem;
+transition:.2s;
+color:#6a5555;
+}
+
+.activity-btn:hover,
+.activity-btn.selected{
+background:#ffb6c1;
+color:white;
+transform:scale(1.03);
+}
+
+.cute-input{
+width:100%;
+padding:14px;
+border-radius:16px;
+border:none;
+background:#fff4f6;
+margin:10px 0;
+font-size:1rem;
+}
+
+.letter{
+max-height:350px;
+overflow:auto;
+text-align:left;
+padding-right:6px;
+line-height:1.8;
+color:#755d5d;
+}
+</style>
+
+<script>
+const selectedActivities=[];
+
+document
+.querySelectorAll(".activity-btn")
+.forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+btn.classList.toggle("selected");
+
+const text=
+btn.innerText.trim();
+
+if(selectedActivities.includes(text)){
+selectedActivities.splice(
+selectedActivities.indexOf(text),1
+);
+}else{
+selectedActivities.push(text);
+}
+
+});
+});
+
+function showDatePage(){
+
+const date=
+document.getElementById("datePicker")
+.value;
+
+const time=
+document.getElementById("timePicker")
+.value;
+
+document.getElementById(
+"dateSummary"
+).innerHTML=`
+📅 <b>${date || "12 June"}</b>
+<br><br>
+⏰ <b>${time || "whenever u miss me"}</b>
+<br><br>
+💖 <b>${selectedActivities.join(", ") || "everything"}</b>
+`;
+
+nextPage(5);
+}
 </script>
 
 </body>
